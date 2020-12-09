@@ -2,7 +2,8 @@
 //
 
 #include "pch.h"
-#include "Application.h"
-#include "Callback.h"
+#include "Core/Application.h"
+#include "Core/Callback.h"
+
 // Entry Point (has to be included last)
-#include "EntryPoint.h"
+#include "Core/EntryPoint.h"

@@ -10,4 +10,7 @@
 // add headers that you want to pre-compile here
 #include <iostream>
 
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+
 #endif //PCH_H
