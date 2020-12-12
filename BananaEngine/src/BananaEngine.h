@@ -2,8 +2,15 @@
 //
 
 #include "pch.h"
+#include "WindowManager/Window.h"
 #include "Core/Application.h"
 #include "Core/Callback.h"
 
+
 // Entry Point (has to be included last)
 #include "Core/EntryPoint.h"
+
+
+namespace Banana {
+
+}

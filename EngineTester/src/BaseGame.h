@@ -11,6 +11,7 @@ private:
 	void main() override;
 	void Start() override;
 	void Update() override;
+	Banana::WinInfo OnWindowCreation() override;
 };
 
 // Returning pointer to base class application (this is mandatory)

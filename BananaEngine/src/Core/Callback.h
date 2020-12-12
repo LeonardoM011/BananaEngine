@@ -19,6 +19,7 @@ namespace Banana {
 		void main() { m_App->main(); }
 		void Start() { m_App->Start(); }
 		void Update() { m_App->Update(); }
+		WinInfo OnWindowCreation() { return m_App->OnWindowCreation(); }
 		// ------------
 
 	private:
