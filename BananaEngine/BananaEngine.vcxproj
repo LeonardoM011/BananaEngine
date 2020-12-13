@@ -100,6 +100,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Core\Callback.h" />
     <ClInclude Include="src\Core\Application.h" />
     <ClInclude Include="src\Core\EntryPoint.h" />
@@ -107,6 +108,7 @@
     <ClInclude Include="src\WindowManager\Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Renderer\GraphicsContext.cpp" />
     <ClCompile Include="src\BananaEngine.h" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

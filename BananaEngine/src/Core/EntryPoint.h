@@ -6,18 +6,20 @@ int main(int argc, char** argv) {
 	cb.main();
 	// *** Window Class ***
 	Banana::Window window;
+	window.Init();
 	Banana::WinInfo wInfo;
 	wInfo =	cb.OnWindowCreation();
 	window.CreateWindow(wInfo.width, wInfo.height, wInfo.title);
+	// Creating context
+	Banana::GraphicsContext context;
+	context.Init();
 	// Main Game Loop
 	cb.Start();
 	while(!window.WindowShouldClose()) {
-		// Prepare context for rendering
-		glClearColor(1.0f, 0.3f, 0.1f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		context.Prepare();
 
 		cb.Update();
-	
+
 		window.SwapBuffers();
 	}
 	return 0;
