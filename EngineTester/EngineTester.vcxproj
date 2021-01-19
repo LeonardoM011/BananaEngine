@@ -14,9 +14,6 @@
     <ClCompile Include="src\BaseGame.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\BaseGame.h" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\BananaEngine\BananaEngine.vcxproj">
       <Project>{4505b8f5-f7a4-4fb9-ad89-246968d4889b}</Project>
     </ProjectReference>
@@ -77,6 +74,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>..\BananaEngine\src;..\BananaEngine\vendor\glfw\include;..\BananaEngine\vendor\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -95,6 +93,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>..\BananaEngine\src;..\BananaEngine\vendor\glfw\include;..\BananaEngine\vendor\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

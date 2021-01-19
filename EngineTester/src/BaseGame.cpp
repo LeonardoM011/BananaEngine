@@ -1,28 +1,32 @@
-#include "BaseGame.h"
+#pragma once
+#include <iostream>
+#include <BananaEngine.h>
 
-BaseGame::BaseGame() {
+// Functions should return 0 if everything went well
+// If it returns something else it is considered to be an error
+
+// Main gets called before everything else
+void Main() {
+	std::cout << "BananaEngine: Version 0.2.1-alpha" << std::endl;
 }
 
-BaseGame::~BaseGame() {
-
-}
-
-// Function main is the first thing that's being called in the program
-void BaseGame::main() {
-	std::cout << "BananaEngine: Version 0.1.2-alpha" << std::endl;
-}
-
-// Start gets called just before main game loop
-void BaseGame::Start() {
-	
+// Start gets called just before main game loop when everything else is initialized
+int Start() {
+	std::cout << "Start\n";
+	return 0;
 }
 
 // Update gets called every frame
-void BaseGame::Update() {
-
+int Update() {
+	std::cout << "Update\n";
+	return 0;
 }
 
 // OnWindowCreation gets called just before creating a window so we can set some peramaters
-Banana::WinInfo BaseGame::OnWindowCreation() {
-	return Banana::WinInfo("BananaEngine: Version 0.1.2-alpha", 800, 600);
+int OnWindowCreation(std::string& title, unsigned int& width, unsigned int& height) {
+	title = "BananaEngine: Version 0.2.1-alpha";
+	width = 800;
+	height = 600;
+	std::cout << "OnWindowCreation\n";
+	return 0;
 }

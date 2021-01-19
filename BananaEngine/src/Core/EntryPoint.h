@@ -1,26 +1,10 @@
 #pragma once
+#include "Core/ClientCallbacks.h"
 
 int main(int argc, char** argv) {
-	// *** Callback Class ***
-	Banana::Callback cb;
-	cb.main();
-	// *** Window Class ***
-	Banana::Window window;
-	window.Init();
-	Banana::WinInfo wInfo;
-	wInfo =	cb.OnWindowCreation();
-	window.CreateWindow(wInfo.width, wInfo.height, wInfo.title);
-	// Creating context
-	Banana::GraphicsContext context;
-	context.Init();
-	// Main Game Loop
-	cb.Start();
-	while(!window.WindowShouldClose()) {
-		context.Prepare();
+	// Client callback
+	::Main();
 
-		cb.Update();
-
-		window.SwapBuffers();
-	}
+	Banana::Application::Get().Start();
 	return 0;
 }

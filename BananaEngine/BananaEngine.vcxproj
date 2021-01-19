@@ -64,6 +64,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>src;vendor\glfw\include;vendor\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -86,6 +87,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>src;vendor\glfw\include;vendor\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -100,14 +102,18 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Core\Base.h" />
+    <ClInclude Include="src\Renderer\Renderer.h" />
+    <ClInclude Include="src\Core\ClientCallbacks.h" />
     <ClInclude Include="src\Renderer\GraphicsContext.h" />
-    <ClInclude Include="src\Core\Callback.h" />
     <ClInclude Include="src\Core\Application.h" />
     <ClInclude Include="src\Core\EntryPoint.h" />
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="src\WindowManager\Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Core\Application.cpp" />
     <ClCompile Include="src\Renderer\GraphicsContext.cpp" />
     <ClCompile Include="src\BananaEngine.h" />
     <ClCompile Include="src\pch.cpp">

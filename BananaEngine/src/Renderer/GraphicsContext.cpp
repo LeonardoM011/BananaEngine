@@ -2,14 +2,8 @@
 #include "GraphicsContext.h"
 
 namespace Banana {
-
-	GraphicsContext::GraphicsContext() {
-
-	}
-
-	GraphicsContext::~GraphicsContext() {
-
-	}
+	// Instantiating Instance to be null 
+	GraphicsContext* GraphicsContext::s_Instance = nullptr;
 
 	int GraphicsContext::Init() {
 		// Load all GL functions

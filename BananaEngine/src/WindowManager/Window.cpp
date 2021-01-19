@@ -1,12 +1,14 @@
 #include "pch.h"
 #include "Window.h"
+#include "Core/ClientCallbacks.h"
 
 namespace Banana {
 
 	Window::Window() :
 		m_Window(nullptr),
-		m_WinInfo("", 800, 600) {
-	}
+		m_Title(""),
+		m_Width(0),
+		m_Height(0) {}
 
 	Window::~Window() {
 		glfwTerminate();
@@ -20,8 +22,10 @@ namespace Banana {
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 	}
 
-	int Window::CreateWindow(int width, int height, const char* title) {
-		m_WinInfo = WinInfo(title, width, height);
+	int Window::GenerateWindow(int width, int height, const char* title/*, Callback* callback*/) {
+		m_Title = title;
+		m_Width = width;
+		m_Height = height;
 
 		m_Window = glfwCreateWindow(width, height, title, NULL, NULL);
 
@@ -35,7 +39,7 @@ namespace Banana {
 		glfwMakeContextCurrent(m_Window);
 
 		// Set window user pointer to WinInfo so we can get and set data from withing lambda function
-		glfwSetWindowUserPointer(m_Window, &m_WinInfo);
+		/*glfwSetWindowUserPointer(m_Window, &m_WinInfo);
 
 		// Setting callback for when window gets resized
 		glfwSetFramebufferSizeCallback(m_Window, [](GLFWwindow* window, int width, int height) {
@@ -46,7 +50,7 @@ namespace Banana {
 
 			// Specify window rectangle for renderings
 			glViewport(0, 0, width, height);
-		});
+		});*/
 
 		// TODO: Create a callback to client from this function so the client can decide how to handle input
 		glfwSetKeyCallback(m_Window, [](GLFWwindow* window, int key, int scancode, int action, int mods) {
