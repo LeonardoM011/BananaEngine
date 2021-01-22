@@ -12,6 +12,9 @@
 #include <cstdio>
 #include <string>
 #include <assert.h>
+#include <vector>
+#include <functional>
+
 #include <Windows.h>
 
 #include <glad/glad.h>

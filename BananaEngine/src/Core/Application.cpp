@@ -15,6 +15,7 @@ namespace Banana {
 
 		Init();
 		// Client callback
+		// TODO: Do error checking and return value
 		::Start();
 		Run();
 		Close();
@@ -31,6 +32,7 @@ namespace Banana {
 		unsigned int height = 200;
 
 		// Client callback
+		// TODO: Do error checking and return value
 		::OnWindowCreation(title, width, height);
 		
 		m_Window.GenerateWindow(width, height, title.c_str());
@@ -45,6 +47,7 @@ namespace Banana {
 			GraphicsContext::Get().Prepare();
 
 			// Client callback
+			// TODO: Do error checking and return value
 			::Update();
 
 			m_Window.SwapBuffers();

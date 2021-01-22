@@ -12,13 +12,13 @@ void Main() {
 
 // Start gets called just before main game loop when everything else is initialized
 int Start() {
-	std::cout << "Start\n";
+	//std::cout << "Start\n";
 	return 0;
 }
 
 // Update gets called every frame
 int Update() {
-	std::cout << "Update\n";
+	//std::cout << "Update\n";
 	return 0;
 }
 
@@ -27,6 +27,11 @@ int OnWindowCreation(std::string& title, unsigned int& width, unsigned int& heig
 	title = "BananaEngine: Version 0.2.1-alpha";
 	width = 800;
 	height = 600;
-	std::cout << "OnWindowCreation\n";
+	//std::cout << "OnWindowCreation\n";
+	return 0;
+}
+
+int OnKeyPress(int key, int scancode, int action, int mods) {
+	std::cout << key << std::endl;
 	return 0;
 }

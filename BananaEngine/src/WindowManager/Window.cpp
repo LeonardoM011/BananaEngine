@@ -20,6 +20,10 @@ namespace Banana {
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 5);
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+		m_FunctionCallbackFn.push_back([]()->void {
+			std::cout << "Hey";
+		});
 	}
 
 	int Window::GenerateWindow(int width, int height, const char* title/*, Callback* callback*/) {
@@ -38,23 +42,26 @@ namespace Banana {
 		// Make the context of the current window current on the calling thread
 		glfwMakeContextCurrent(m_Window);
 
-		// Set window user pointer to WinInfo so we can get and set data from withing lambda function
-		/*glfwSetWindowUserPointer(m_Window, &m_WinInfo);
+		// Pass pointer to this class so we can use it from inside lambdas
+		glfwSetWindowUserPointer(m_Window, this);
 
-		// Setting callback for when window gets resized
+		// If window gets resized this lambda function gets called
 		glfwSetFramebufferSizeCallback(m_Window, [](GLFWwindow* window, int width, int height) {
-			// Get window user pointer from above and set WinInfo width and height to new width and height
-			WinInfo& info = *(WinInfo*)glfwGetWindowUserPointer(window);
-			info.width = width;
-			info.height = height;
+			// Get pointer to this class window then change width and height 
+			Window& windowpt = *(Window*)glfwGetWindowUserPointer(window);
+			windowpt.SetWidth(width);
+			windowpt.SetHeight(height);
 
 			// Specify window rectangle for renderings
 			glViewport(0, 0, width, height);
-		});*/
+		});
 
-		// TODO: Create a callback to client from this function so the client can decide how to handle input
+		// Callback that handles key input
 		glfwSetKeyCallback(m_Window, [](GLFWwindow* window, int key, int scancode, int action, int mods) {
-			//printf("%d", key);
+			// Get pointer to this class window
+			Window& windowpt = *(Window*)glfwGetWindowUserPointer(window);
+			// Call callback function
+			windowpt.OnKeyPressCallback(key, scancode, action, mods);
 		});
 
 		return 0;
@@ -72,5 +79,11 @@ namespace Banana {
 		// Swap buffer and check for input events
 		glfwSwapBuffers(m_Window);
 		glfwPollEvents();
+	}
+
+	void Window::OnKeyPressCallback(int key, int scancode, int action, int mods) {
+		// TODO: Do error checking and return value
+		// TODO: Replace key codes with key names
+		::OnKeyPress(key, scancode, action, mods);
 	}
 }
