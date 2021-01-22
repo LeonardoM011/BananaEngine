@@ -7,7 +7,7 @@
 
 // Main gets called before everything else
 void Main() {
-	std::cout << "BananaEngine: Version 0.2.1-alpha" << std::endl;
+	std::cout << "BananaEngine: Version 0.2.2-alpha" << std::endl;
 }
 
 // Start gets called just before main game loop when everything else is initialized
@@ -24,7 +24,7 @@ int Update() {
 
 // OnWindowCreation gets called just before creating a window so we can set some peramaters
 int OnWindowCreation(std::string& title, unsigned int& width, unsigned int& height) {
-	title = "BananaEngine: Version 0.2.1-alpha";
+	title = "BananaEngine: Version 0.2.2-alpha";
 	width = 800;
 	height = 600;
 	//std::cout << "OnWindowCreation\n";
